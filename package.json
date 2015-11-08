@@ -1,0 +1,39 @@
+{
+  "name": "protractor-timeline-plugin",
+  "version": "0.1.2",
+  "description": "Gathers test timeline information and presents the output visually",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/httpster/bin/httpster -d testapp/ -p `node -p 'process.env.HTTP_PORT || require(\"./spec/environment\").webServerDefaultPort'`",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/protractor-timeline-plugin"
+  },
+  "keywords": [
+    "angular",
+    "test",
+    "testing",
+    "webdriver",
+    "webdriverjs",
+    "selenium",
+    "protractor",
+    "protractor-plugin"
+  ],
+  "author": "Julie Julie Ralph <ju.ralph@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/protractor-timeline-plugin/issues"
+  },
+  "homepage": "https://github.com/angular/protractor-timeline-plugin",
+  "dependencies": {
+    "q": "^1.4.1",
+    "saucelabs": "^1.0.1"
+  },
+  "devDependencies": {
+    "httpster": "^1.0.1",
+    "jasmine": "^2.3.2",
+    "protractor": "^2.5.1"
+  }
+}
