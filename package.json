@@ -4,7 +4,7 @@
   "description": "Gathers test timeline information and presents the output visually",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/httpster/bin/httpster -d testapp/ -p `node -p 'process.env.HTTP_PORT || require(\"./spec/environment\").webServerDefaultPort'`",
+    "start": "httpster -d testapp/ -p `node -p 'process.env.HTTP_PORT || require(\"./spec/environment\").webServerDefaultPort'`",
     "test": "node test.js"
   },
   "repository": {

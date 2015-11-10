@@ -1,9 +1,24 @@
-'use strict';
+var app = angular.module('myApp', []);
 
+function FormCtrl($scope, $window) {
+  $scope.greeting = 'Hiya';
+  $scope.username = 'Anon';
+  $scope.nickname = 'annie';
+  $scope.aboutbox = 'This is a text box';
+  $scope.color = 'blue';
+  $scope.show = true;
 
-// Declare app level module which depends on filters, and services
-angular.module('myApp', ['ngAnimate', 'ngRoute', 'myApp.appVersion']).
-  config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/form', {templateUrl: 'form/form.html', controller: FormCtrl});
-    $routeProvider.otherwise({redirectTo: '/form'});
-  }]);
+  $scope.colors = ['red', 'green', 'blue'];
+  $scope.dayColors = [{day: 'Mon', color: 'red'}, {day: 'Tue', color: 'green'}, {day: 'Wed', color: 'blue'}];
+
+  $scope.fruit = '';
+  $scope.defaultFruit = 'apple';
+  $scope.fruits = ['pear', 'peach', 'banana'];
+
+  $scope.doAlert = function() {
+    $window.alert('Hello');
+  };
+}
+FormCtrl.$inject = ['$scope', '$window'];
+
+app.controller('FormCtrl', FormCtrl);
