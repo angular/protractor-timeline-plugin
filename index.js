@@ -296,8 +296,8 @@ TimelinePlugin.prototype.postResults = function() {
     // delay before Sauce Labs updates logs.
     setTimeout(function() {
       var sauceServer = new SauceLabs({
-        username: this.config.sauceUser,
-        password: this.config.sauceKey
+        username: self.config.sauceUser,
+        password: self.config.sauceKey
       });
 
       sauceServer.showJob(self.sessionId, function(err, job) {
