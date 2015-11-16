@@ -1,6 +1,6 @@
 {
   "name": "protractor-timeline-plugin",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Gathers test timeline information and presents the output visually",
   "main": "index.js",
   "scripts": {

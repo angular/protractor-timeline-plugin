@@ -9,16 +9,16 @@ To enable the Timeline plugin, set it up in your config file:
 ```js
 exports.config = {
   plugins: [{
-   path: 'node_modules/protractor/plugins/timeline/index.js',
+    package: 'protractor-timeline-plugin',
 
     // Output json and html will go in this folder.
-   outdir: 'timelines',
+    outdir: 'timelines',
 
     // Optional - if sauceUser and sauceKey are specified, logs from
-   // SauceLabs will also be parsed after test invocation.
-     sauceUser: 'Jane',
-     sauceKey: 'abcdefg'
-   }],
+    // SauceLabs will also be parsed after test invocation.
+    sauceUser: 'Jane',
+    sauceKey: 'abcdefg'
+  }],
   // other configuration settings
 };
 ```
