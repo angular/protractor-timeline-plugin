@@ -14,6 +14,9 @@ exports.config = {
     // Output json and html will go in this folder.
     outdir: 'timelines',
 
+    // Set the name of the html file. Defaults to index.html.
+    htmlFile: 'results.html'
+
     // Optional - if sauceUser and sauceKey are specified, logs from
     // SauceLabs will also be parsed after test invocation.
     sauceUser: 'Jane',
