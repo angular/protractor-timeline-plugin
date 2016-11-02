@@ -214,7 +214,7 @@ TimelinePlugin.prototype.setup = function() {
   // Override executor so that we get information about commands starting
   // and stopping.
   var originalExecute = browser.driver.executor_.execute;
-  browser.driver.executor_.execute = function(command, callback) {
+  browser.driver.executor_.execute = function(command) {
     var timelineEvent = {
       source: 'Test Process',
       id: counter++,
@@ -227,11 +227,10 @@ TimelinePlugin.prototype.setup = function() {
       self.testProcessSetTimeoutTimestamp = timelineEvent.start;
     }
     self.timeline.push(timelineEvent);
-    var wrappedCallback = function(var_args) {
+    return originalExecute.apply(browser.driver.executor_, [command]).then(function(res) {
       timelineEvent.end = new Date().getTime();
-      callback.apply(this, arguments);
-    };
-    originalExecute.apply(browser.driver.executor_, [command, wrappedCallback]);
+      return res;
+    });
   };
 
   // Clear the logs here.
