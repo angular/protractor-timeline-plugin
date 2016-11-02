@@ -34,6 +34,6 @@
   "devDependencies": {
     "httpster": "^1.0.1",
     "jasmine": "^2.3.2",
-    "protractor": "^2.5.1"
+    "protractor": "^4.0.10"
   }
 }

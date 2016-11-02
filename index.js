@@ -227,11 +227,25 @@ TimelinePlugin.prototype.setup = function() {
       self.testProcessSetTimeoutTimestamp = timelineEvent.start;
     }
     self.timeline.push(timelineEvent);
+    var usesPromises = false; // Unsure if .execute() returns a promise
     var wrappedCallback = function(var_args) {
-      timelineEvent.end = new Date().getTime();
-      callback.apply(this, arguments);
     };
-    originalExecute.apply(browser.driver.executor_, [command, wrappedCallback]);
+    var ret = originalExecute.call(browser.driver.executor_, command,
+      function() {
+        if (!usesPromises) {
+          timelineEvent.end = new Date().getTime();
+          callback.apply(this, arguments);
+        }
+      }
+    );
+    if (typeof ret.then == 'function') {
+      usesPromises = true;
+      ret = ret.then((val) => {
+        timelineEvent.end = new Date().getTime();
+        return val;
+      });
+    }
+    return ret;
   };
 
   // Clear the logs here.
