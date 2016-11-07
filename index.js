@@ -198,7 +198,7 @@ TimelinePlugin.prototype.outputResults = function(done) {
       path.join(__dirname, 'indextemplate.html'));
   var outfile = path.join(this.outdir, 'timeline.json');
   fs.writeFileSync(outfile, JSON.stringify(this.timeline));
-  stream.pipe(fs.createWriteStream(path.join(this.outdir, 'index.html')));
+  stream.pipe(fs.createWriteStream(path.join(this.outdir, this.config.outputHtmlFileName || 'index.html')));
   stream.on('end', done);
 };
 
