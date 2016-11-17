@@ -5,7 +5,7 @@ var TimelinePlugin = require('../index.js').TimelinePlugin;
 describe('timeline plugin', function() {
   it('should parse an example selenium standalone log', function() {
     var timeline = TimelinePlugin.parseTextLog(
-        fs.readFileSync(path.join(__dirname, 'standalonelog.txt')).toString());
+        fs.readFileSync(path.resolve(__dirname, 'standalonelog.txt')).toString());
 
     expect(timeline.length).toEqual(23);
     expect(timeline[0].command).toEqual('new session');
@@ -14,7 +14,7 @@ describe('timeline plugin', function() {
 
   it('should parse an example chromedriver log', function() {
     var timeline = TimelinePlugin.parseTextLog(
-        fs.readFileSync(path.join(__dirname, 'chromelog.txt')).toString());
+        fs.readFileSync(path.resolve(__dirname, 'chromelog.txt')).toString());
 
     expect(timeline.length).toEqual(24);
     expect(timeline[0].command).toEqual('InitSession');

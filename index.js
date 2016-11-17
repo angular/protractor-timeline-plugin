@@ -195,10 +195,10 @@ TimelinePlugin.prototype.outputResults = function(done) {
     if (e.code != 'EEXIST') throw e;
   }
   var stream = fs.createReadStream(
-      path.join(__dirname, 'indextemplate.html'));
-  var outfile = path.join(this.outdir, 'timeline.json');
+      path.resolve(__dirname, 'indextemplate.html'));
+  var outfile = path.resolve(this.outdir, 'timeline.json');
   fs.writeFileSync(outfile, JSON.stringify(this.timeline));
-  stream.pipe(fs.createWriteStream(path.join(this.outdir, this.config.outputHtmlFileName || 'index.html')));
+  stream.pipe(fs.createWriteStream(path.resolve(this.outdir, this.config.outputHtmlFileName || 'index.html')));
   stream.on('end', done);
 };
 
